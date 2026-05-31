@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { personalInfo } from '../data';
 import { GitBranch, Link2, Mail, ArrowRight, Dna, Cpu, Microscope, Sparkles, Code2, Workflow, Layers3 } from 'lucide-react';
+import selfie from "../assets/caps_selfie.jpeg"
+import labWork from "../assets/bmc_lab_work.jpg"
+import ruleGraph from "../assets/rulegraph.png"
 
 function Home() {
   return (
@@ -130,7 +133,7 @@ function Home() {
         <div className="space-y-6">
           <div className="glow-card hover-lift p-6">
             <img
-              src="src/assets/caps_selfie.jpeg"
+              src={selfie}
               alt="Chandrashekar CR - Portrait"
               className="w-full h-auto rounded-lg object-cover"
             />
@@ -139,7 +142,7 @@ function Home() {
             <div className="glow-card hover-lift p-4">
               <div className="relative w-full aspect-[4/5] overflow-hidden rounded-lg">
                 <img
-                  src="src/assets/bmc_lab_work.jpg"
+                  src={labWork}
                   alt="Chandrashekar CR - Wet Lab Work"
                   className="absolute inset-0 w-full h-full object-contain"
                 />
@@ -149,7 +152,7 @@ function Home() {
             <div className="glow-card hover-lift p-4">
               <div className="relative w-full aspect-[4/5] overflow-hidden rounded-lg bg-white">
                 <img
-                  src="src/assets/rulegraph.png"
+                  src={ruleGraph}
                   alt="Chandrashekar CR - Rule Graph"
                   className="absolute inset-0 w-full h-full object-contain"
                 />
