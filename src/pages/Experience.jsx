@@ -18,21 +18,21 @@ function Experience() {
         github: 'https://github.com/ChandrashekarCR/microbiome-forensic-tracker',
         paper: null,
         problem:
-          "Every environment has its own microbial community which is analogous to a microbial fingerprint. A swab, a soil core, a metagenome — each carries a community of microbes i.e microbiome shaped by where it came from. The question was: can an unknown sample's microbiome predict geographic origin, and can that prediction be explained clearly for real forensic use?",
+          "Every environment possesses a distinct microbial community that functions as a biological fingerprint. Whether derived from a surface swab, a soil core, or a complex metagenomic sample, a microbiome is fundamentally shaped by its geographic provenance. The core challenge lies in determining whether an unknown sample's microbial profile can accurately predict its precise geographic origin, and whether that prediction can be translated into legally defensible, interpretable forensic evidence.",
         solution:
-          'I am building this as an end-to-end platform for converting the raw sequence information into latitude and longitude predictions using a metgenomics inference workflow wrapped using a Snakemake pipeline , a GPU-accelerated ML layer with MLflow tracking, a FastAPI + SQLite backend with map-driven workflows, and an Ollama-powered RAG layer for automated forensic reporting.',
+          'I am building this as an end-to-end microbial forensics platform that converts raw sequencing data into latitude and longitude coordinates. The system integrates a metagenomic inference engine managed via a Snakemake pipeline, a GPU-accelerated machine learning layer with MLflow tracking, and a FastAPI + SQLite backend featuring map-driven workflows. To bridge the gap between complex data and actionable intelligence, an Ollama-powered RAG (Retrieval-Augmented Generation) layer automatically synthesizes natural-language forensic reports.',
         engineering:
           'This project is designed as software architecture, not a one-off analysis: switchable pipeline stages, per-rule HPC resources, Apptainer containers, tests with pytest, and CI gates (Ruff, Black, snakefmt, GitHub Actions) for reproducibility and maintainability.',
         stack: [
-          'Snakemake',
-          'DNABERT-S',
-          'PyTorch',
-          'FastAPI',
-          'SQLite',
-          'Ollama / RAG',
-          'Apptainer',
-          'SLURM / HPC'
-        ]
+        { label: 'Snakemake', url: 'https://snakemake.readthedocs.io' },
+        { label: 'DNABERT-S', url: 'https://github.com/MAGICS-LAB/DNABERT_S' },
+        { label: 'PyTorch', url: 'https://pytorch.org/' },
+        { label: 'FastAPI', url: 'https://fastapi.tiangolo.com/' },
+        { label: 'SQLite', url: 'https://sqlite.org/' },
+        { label: 'Ollama / RAG', url: 'https://ollama.com/' },
+        { label: 'Apptainer', url: 'https://apptainer.org/' },
+        { label: 'SLURM / HPC', url: 'https://slurm.schedmd.com/' }
+          ]
       },
       {
         id: 'tel-megiddo-adna',
@@ -52,17 +52,11 @@ function Experience() {
           'I built a modular Nextflow workflow with explicit reference-database curation (Gallus gallus + Coturnix + turkey + Phasianus), automated NCBI genome retrieval and FASTA tagging, Kraken2 classification with aDNA-tuned parameters, Bracken abundance profiling, read-length and KMC complexity QC, and a BLAST localization stage under active development.',
         engineering:
           'This is pipeline engineering with provenance first: every stage is testable and traceable. It runs on SLURM/HPC today and is being packaged for cloud portability on Azure using Singularity/Apptainer, with CI checks, reproducible configs, and environment pinning for identical execution across infrastructures.',
-        stack: [
-          'Nextflow',
-          'Singularity / Apptainer',
-          'SLURM - Azure',
-        ],
-        highlights: [
-          'Chicken-vs-relatives resolved by curated reference DB design',
-          'aDNA-tuned Kraken2/Bracken parameters',
-          'Modular Nextflow workflow, SLURM → Azure portable',
-          'Containerized, tested, CI/CD-gated reproducibility'
-        ]
+          stack: [
+            { label: 'Nextflow', url: 'https://www.nextflow.io/' },
+            { label: 'Apptainer', url: 'https://apptainer.org/' },
+            { label: 'SLURM', url: 'https://slurm.schedmd.com/' },
+          ]
       },
       {
         id: 'viral',
@@ -82,7 +76,13 @@ function Experience() {
           'I implemented a workflow around a codon-level genetic score and integrated it with FoldX structural impact modeling (ΔΔG, stability, interfaces), then validated it across SARS-CoV-2, Influenza, Ebola, Dengue, and Chikungunya.',
         engineering:
           'The critical work was computational robustness: a parallelized and fault-tolerant FoldX driver that auto-generates mutation jobs, distributes them across CPUs, runs triplicates, flags unstable runs, and aggregates clean outputs for analysis.',
-        stack: ['Python', 'FoldX', 'Structural bioinformatics', 'pandas', 'Codon analysis']
+        stack: [
+          { label: 'Python', url: 'https://www.python.org/' },
+          { label: 'FoldX', url: 'https://foldxsuite.crg.eu/' },
+          { label: 'Structural bioinformatics', url: 'https://www.ebi.ac.uk/training/materials/structural-bioinformatics-materials/' },
+          { label: 'pandas', url: 'https://pandas.pydata.org/docs/'}, 
+          { label: 'Codon analysis', url: 'https://en.wikipedia.org/wiki/Codon_usage_bias'}
+        ]
       },
       {
         id: 'mgps',
@@ -106,7 +106,12 @@ function Experience() {
           { label: 'Continent accuracy', value: '95%' },
           { label: 'City accuracy', value: '93%' }
         ],
-        stack: ['PyTorch', 'scikit-learn', 'TabPFN', 'Optuna', 'GeoPandas']
+        stack: [{ label: 'PyTorch', url: 'https://pytorch.org/' }, 
+                { label: 'scikit-learn', url: 'https://scikit-learn.org/stable/' }, 
+                { label: 'TabPFN', url: 'https://github.com/PriorLabs/tabpfn' }, 
+                { label: 'Optuna', url: "https://github.com/optuna/optuna" }, 
+                { label: 'GeoPandas', url: "https://geopandas.org/en/stable/"}
+              ]
       },
       {
         id: 'hotdog-proteins',
@@ -127,13 +132,12 @@ function Experience() {
         engineering:
           'This was an early end-to-end integration of structural bioinformatics and machine learning. It showed that fold-aware features can recover functional signals where sequence homology is weak, and it shaped my systems-thinking approach to protein-focused modeling.',
         stack: [
-          'Biopython',
-          'scikit-learn',
-          'PyMOL',
-          'JalView',
-          'DALI server',
-          'Phylogenetics',
-          'Structural bioinformatics'
+          { label: 'Biopython', url: "https://biopython.org/wiki/Documentation" },
+          { label: 'scikit-learn', url: 'https://scikit-learn.org/stable/' },
+          { label: 'PyMOL', url: 'https://pymol.org/' },
+          { label: 'DALI server', url: "http://ekhidna2.biocenter.helsinki.fi/dali/"},
+          { label: 'Phylogenetics', url: "https://www.ebi.ac.uk/training/online/courses/introduction-to-phylogenetics/what-is-phylogenetics/"},
+          { label: 'Structural bioinformatics', url: 'https://www.ebi.ac.uk/training/materials/structural-bioinformatics-materials/' }
         ],
         highlights: [
           'Function prediction from structure, not sequence',
@@ -160,7 +164,11 @@ function Experience() {
           'I built a validated in-silico screening funnel combining sequence-level predictors, structure-based stability analysis, conservation, binding-pocket assessment, and molecular dynamics to prioritize pathogenic SNPs.',
         engineering:
           'This project taught a core principle I still follow: validate the pipeline on known cases first, then trust new predictions. Reproducibility before claims.',
-        stack: ['GROMACS', 'PyMOL', 'Web-based bioinformatics tools', ]
+          stack: [
+            { label: 'GROMACS', url: 'https://www.gromacs.org/' },
+            { label: 'PyMOL', url: 'https://pymol.org/' },
+            { label: 'Web-based bioinformatics tools', url: null },
+          ]
       }
     ],
     []
@@ -277,14 +285,28 @@ function Experience() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {activeProject.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground"
-                >
-                  {tech}
-                </span>
-              ))}
+              {activeProject.stack.map((techItem) => {
+                const tech = typeof techItem === 'string' ? { label: techItem, url: null } : techItem;
+                return tech.url ? (
+                  <a
+                    key={tech.label}
+                    href={tech.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary hover:bg-primary/10 inline-flex items-center gap-1"
+                  >
+                    {tech.label}
+                    <ExternalLink size={11} className="opacity-0 transition-opacity group-hover:opacity-100" />
+                  </a>
+                ) : (
+                  <span
+                    key={tech.label}
+                    className="rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground"
+                  >
+                    {tech.label}
+                  </span>
+                );
+              })}
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -364,14 +386,28 @@ function Experience() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {paidExperience.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {paidExperience.stack.map((techItem) => {
+                  const tech = typeof techItem === 'string' ? { label: techItem, url: null } : techItem;
+                  return tech.url ? (
+                    <a
+                      key={tech.label}
+                      href={tech.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary hover:bg-primary/10 inline-flex items-center gap-1"
+                    >
+                      {tech.label}
+                      <ExternalLink size={11} className="opacity-0 transition-opacity group-hover:opacity-100" />
+                    </a>
+                  ) : (
+                    <span
+                      key={tech.label}
+                      className="rounded-md border border-border bg-background/40 px-2.5 py-1 text-xs font-mono text-muted-foreground"
+                    >
+                      {tech.label}
+                    </span>
+                  );
+                })}
               </div>
 
               <div className="flex flex-wrap gap-3">

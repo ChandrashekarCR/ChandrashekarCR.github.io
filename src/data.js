@@ -1,3 +1,7 @@
+import msritCertificate from "./assets/msrit_degree.pdf";
+import lundTranscript from "./assets/lund_transcript.pdf"
+
+
 export const personalInfo = {
   name: "Chandrashekar CR",
   role: "Bioinformatics Solution Architect",
@@ -40,13 +44,15 @@ export const education = [
     location: "Lund, Sweden",
     degree: "MSc Bioinformatics",
     duration: "2024 - 2026",
+    certificate: lundTranscript
   },
   {
     institution: "MS Ramaiah Institute of Technology",
     location: "Bengaluru, India",
     degree: "BE Biotechnology",
     duration: "2019 - 2023",
-    details: "CGPA: 9.2/10.0"
+    details: "CGPA: 9.2/10.0",
+    certificate: msritCertificate
   }
 ];
 
