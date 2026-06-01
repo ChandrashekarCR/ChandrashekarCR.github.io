@@ -43,7 +43,7 @@ function Layout({ children }) {
       </div>
 
       <footer className="text-center py-8 text-sm text-muted-foreground font-mono border-t border-border mt-20">
-        <p>Built with React & Vite. Ready for GitHub Pages.</p>
+        <p>Deployed from GitHub Pages.</p>
         <p className="mt-2 text-foreground">© {new Date().getFullYear()} {personalInfo.name}</p>
       </footer>
     </div>
