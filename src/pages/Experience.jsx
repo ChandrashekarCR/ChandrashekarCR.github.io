@@ -18,15 +18,13 @@ function Experience() {
         github: 'https://github.com/ChandrashekarCR/microbiome-forensic-tracker',
         paper: null,
         problem:
-          "Every environment leaves a microbial fingerprint. A swab, a soil core, a metagenome — each carries a community shaped by where it came from. The question was: can an unknown sample's microbiome predict geographic origin, and can that prediction be explained clearly for real forensic use?",
+          "Every environment has its own microbial community which is analogous to a microbial fingerprint. A swab, a soil core, a metagenome — each carries a community of microbes i.e microbiome shaped by where it came from. The question was: can an unknown sample's microbiome predict geographic origin, and can that prediction be explained clearly for real forensic use?",
         solution:
-          'I built this as an end-to-end platform: Snakemake pipeline (FASTQ → QC → host-read depletion → Kraken2/Bracken profiling → MEGAHIT assembly → DNABERT-S embeddings), a GPU-accelerated ML layer with MLflow tracking, a FastAPI + SQLite backend with map-driven workflows, and an Ollama-powered RAG layer for automated forensic reporting.',
+          'I am building this as an end-to-end platform for converting the raw sequence information into latitude and longitude predictions using a metgenomics inference workflow wrapped using a Snakemake pipeline , a GPU-accelerated ML layer with MLflow tracking, a FastAPI + SQLite backend with map-driven workflows, and an Ollama-powered RAG layer for automated forensic reporting.',
         engineering:
           'This project is designed as software architecture, not a one-off analysis: switchable pipeline stages, per-rule HPC resources, Apptainer containers, tests with pytest, and CI gates (Ruff, Black, snakefmt, GitHub Actions) for reproducibility and maintainability.',
         stack: [
           'Snakemake',
-          'Kraken2 / Bracken',
-          'MEGAHIT',
           'DNABERT-S',
           'PyTorch',
           'FastAPI',
@@ -37,8 +35,38 @@ function Experience() {
         ]
       },
       {
-        id: 'viral',
+        id: 'tel-megiddo-adna',
         rank: '02',
+        title: 'Tel-Megiddo Ancient DNA',
+        tagline: 'Reconstructing the past from degraded reads — chicken or its relatives?',
+        role: 'Pipeline Engineering',
+        org: 'Tel-Megiddo aDNA Project',
+        period: 'Ongoing',
+        status: 'active',
+        flagship: false,
+        github: 'https://github.com/ChandrashekarCR/tel-megiddo-aDNA',
+        paper: null,
+        problem:
+          'At the Tel-Megiddo archaeological site, ancient DNA reads mapped to chicken-like taxa, but degradation and close relatives complicate interpretation. The key question is whether reads are truly Gallus gallus or close relatives (jungle fowl, turkey, quail, pheasant), and if chicken is present, which genome regions are represented. The same framework is extended to fish remains and palm-tree-associated bacterial signals.',
+        solution:
+          'I built a modular Nextflow workflow with explicit reference-database curation (Gallus gallus + Coturnix + turkey + Phasianus), automated NCBI genome retrieval and FASTA tagging, Kraken2 classification with aDNA-tuned parameters, Bracken abundance profiling, read-length and KMC complexity QC, and a BLAST localization stage under active development.',
+        engineering:
+          'This is pipeline engineering with provenance first: every stage is testable and traceable. It runs on SLURM/HPC today and is being packaged for cloud portability on Azure using Singularity/Apptainer, with CI checks, reproducible configs, and environment pinning for identical execution across infrastructures.',
+        stack: [
+          'Nextflow',
+          'Singularity / Apptainer',
+          'SLURM - Azure',
+        ],
+        highlights: [
+          'Chicken-vs-relatives resolved by curated reference DB design',
+          'aDNA-tuned Kraken2/Bracken parameters',
+          'Modular Nextflow workflow, SLURM → Azure portable',
+          'Containerized, tested, CI/CD-gated reproducibility'
+        ]
+      },
+      {
+        id: 'viral',
+        rank: '01',
         title: 'Predicting Viral Mutations Before They Emerge',
         tagline: "A genetic score that anticipates pandemic mutations.",
         role: 'Project Intern (~1 year)',
@@ -78,11 +106,45 @@ function Experience() {
           { label: 'Continent accuracy', value: '95%' },
           { label: 'City accuracy', value: '93%' }
         ],
-        stack: ['PyTorch', 'XGBoost', 'LightGBM', 'CatBoost', 'TabPFN', 'Optuna', 'GeoPandas']
+        stack: ['PyTorch', 'scikit-learn', 'TabPFN', 'Optuna', 'GeoPandas']
+      },
+      {
+        id: 'hotdog-proteins',
+        rank: '04',
+        title: 'Hot Dog Proteins',
+        tagline: 'Predicting function from fold, not sequence.',
+        role: 'Bachelor Thesis',
+        org: 'MS Ramaiah Institute of Technology',
+        period: '2022 – 2023',
+        status: 'report',
+        flagship: false,
+        github: 'https://github.com/ChandrashekarCR/hotdog_proteins',
+        paper: null,
+        problem:
+          'Hot-dog-fold proteins often show low sequence similarity despite strong structural conservation, making sequence-only annotation unreliable. Many remain labeled as hypothetical proteins with unknown function.',
+        solution:
+          'I built a structure-first pipeline combining MSA interpretation (JalView), DALI-based structural similarity matrices, phylogenetic reconstruction from structural distances, and scikit-learn SVM classification with clustering to infer functional classes. Structures were processed with Biopython and visualized in PyMOL.',
+        engineering:
+          'This was an early end-to-end integration of structural bioinformatics and machine learning. It showed that fold-aware features can recover functional signals where sequence homology is weak, and it shaped my systems-thinking approach to protein-focused modeling.',
+        stack: [
+          'Biopython',
+          'scikit-learn',
+          'PyMOL',
+          'JalView',
+          'DALI server',
+          'Phylogenetics',
+          'Structural bioinformatics'
+        ],
+        highlights: [
+          'Function prediction from structure, not sequence',
+          'DALI structural-distance phylogenetics',
+          'SVM classification of hypothetical proteins',
+          'Recovered chaperone / lyase / hydrolase / transferase roles'
+        ]
       },
       {
         id: 'tpmt',
-        rank: '04',
+        rank: '05',
         title: 'TPMT Pharmacogenomics',
         tagline: 'Where computation met a clinically relevant biological question.',
         role: 'Undergraduate Research',
@@ -98,7 +160,7 @@ function Experience() {
           'I built a validated in-silico screening funnel combining sequence-level predictors, structure-based stability analysis, conservation, binding-pocket assessment, and molecular dynamics to prioritize pathogenic SNPs.',
         engineering:
           'This project taught a core principle I still follow: validate the pipeline on known cases first, then trust new predictions. Reproducibility before claims.',
-        stack: ['GROMACS', 'PyMOL', 'Sequence/structure predictors', 'Conservation analysis']
+        stack: ['GROMACS', 'PyMOL', 'Web-based bioinformatics tools', ]
       }
     ],
     []
@@ -170,7 +232,7 @@ function Experience() {
 
               {activeProject.status === 'active' ? (
                 <span className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-300">
-                  ● Active thesis
+                  ● Active
                 </span>
               ) : activeProject.status === 'published' ? (
                 <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
@@ -267,9 +329,15 @@ function Experience() {
                   <p className="mt-1 text-xs text-muted-foreground">{paidExperience.role}</p>
                 </div>
 
-                <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
-                  Paid internship
-                </span>
+                {paidExperience.status === 'published' ? (
+                  <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
+                    Published
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
+                    {paidExperience.status}
+                  </span>
+                )}
               </div>
 
               <div className="space-y-4">

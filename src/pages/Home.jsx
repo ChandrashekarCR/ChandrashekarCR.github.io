@@ -27,54 +27,54 @@ function Home() {
             {personalInfo.about}
           </p>
 
-          <div className="pt-6">
-            <div className="relative mx-auto w-full max-w-xs aspect-square">
+          <div className="pt-8 pb-4">
+            <div className="bio-orbit relative mx-auto w-full max-w-sm aspect-square overflow-visible">
               <div className="absolute inset-0 rounded-full bg-surface/20 ring-1 ring-border/60" />
 
               <svg
-                className="absolute inset-0 h-full w-full"
+                className="bio-ring absolute inset-0 h-full w-full"
                 viewBox="0 0 400 400"
                 aria-hidden="true"
               >
                 <circle
                   cx="200"
                   cy="200"
-                  r="118"
+                  r="132"
                   fill="none"
                   stroke="rgba(42,61,72,0.65)"
-                  strokeWidth="22"
+                  strokeWidth="24"
                 />
                 <circle
                   cx="200"
                   cy="200"
-                  r="118"
+                  r="132"
                   fill="none"
                   stroke="rgba(116,215,182,0.35)"
-                  strokeWidth="22"
-                  strokeDasharray="120 620"
-                  strokeDashoffset="10"
+                  strokeWidth="24"
+                  strokeDasharray="140 690"
+                  strokeDashoffset="20"
                   transform="rotate(-90 200 200)"
                 />
                 <circle
                   cx="200"
                   cy="200"
-                  r="118"
+                  r="132"
                   fill="none"
                   stroke="rgba(143,214,255,0.28)"
-                  strokeWidth="22"
-                  strokeDasharray="100 640"
-                  strokeDashoffset="170"
+                  strokeWidth="24"
+                  strokeDasharray="120 710"
+                  strokeDashoffset="190"
                   transform="rotate(-90 200 200)"
                 />
                 <circle
                   cx="200"
                   cy="200"
-                  r="118"
+                  r="132"
                   fill="none"
                   stroke="rgba(200,169,106,0.22)"
-                  strokeWidth="22"
-                  strokeDasharray="90 650"
-                  strokeDashoffset="340"
+                  strokeWidth="24"
+                  strokeDasharray="110 720"
+                  strokeDashoffset="370"
                   transform="rotate(-90 200 200)"
                 />
               </svg>
@@ -83,35 +83,39 @@ function Home() {
                 href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1122955/"
                 target="_blank"
                 rel="noreferrer"
-                className="absolute left-1/2 top-1/2 z-20 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-primary/60 bg-primary/15 px-3 text-center text-sm font-semibold text-foreground shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:bg-primary/25 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="bio-center flex h-32 w-32 items-center justify-center px-4 text-center text-base font-semibold text-foreground focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Bioinformatics
               </a>
 
-              <div className="absolute left-1/2 top-4 -translate-x-1/2">
-                <span className="pill text-xs">
+              <div className="bio-label absolute left-1/2 top-5 -translate-x-1/2 pointer-events-none">
+                <span className="pill text-xs md:text-sm">
                   <Dna size={13} /> Biology
                 </span>
               </div>
 
-              <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                <span className="pill text-xs">
+              <div className="bio-label absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <span className="pill text-xs md:text-sm">
                   <Code2 size={13} /> Software
                 </span>
               </div>
 
-              <div className="absolute left-1/2 bottom-4 -translate-x-1/2">
-                <span className="pill text-xs">
+              <div className="bio-label absolute left-1/2 bottom-5 -translate-x-1/2 pointer-events-none">
+                <span className="pill text-xs md:text-sm">
                   <Workflow size={13} /> Pipelines
                 </span>
               </div>
 
-              <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                <span className="pill text-xs">
+              <div className="bio-label absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <span className="pill text-xs md:text-sm">
                   <Layers3 size={13} /> Systems
                 </span>
               </div>
             </div>
+
+            <p className="mt-4 text-center text-sm text-muted-foreground">
+              Tap the center to open the bioinformatics article.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-4 pt-6">
