@@ -1,6 +1,6 @@
 import msritCertificate from "./assets/msrit_degree.pdf";
 import lundTranscript from "./assets/lund_transcript.pdf"
-
+import copyRightSoftware from "./assets/copyrights_software.pdf"
 
 export const personalInfo = {
   name: "Chandrashekar CR",
@@ -32,8 +32,8 @@ quickFacts: [
 "MSc Bioinformatics, Lund University (2024–2026)",
 "BE Biotechnology, MSRIT — CGPA 9.2/10",
 "Teaching Assistant — Python, Bash, sequence analysis",
-"Carnatic classical violinist — concerts across Scandinavia",
-"VTU Central Zone football winners"
+"Carnatic classical violinist",
+"VTU Central Zone football winners 2023; State Football Runners-up 2023"
 ]
 };
 
@@ -58,10 +58,47 @@ export const education = [
 
 
 export const skills = {
-  "Bioinformatics & Workflows": ["Nextflow", "Snakemake", "Genomics", "Transcriptomics", "Metagenomics", "Proteomics", "Variant Analysis", "Structural Bioinformatics"],
-  "Machine Learning & Data Science": ["PyTorch", "scikit-learn", "pandas", "NumPy", "RAG", "LLMs", "MLflow"],
-  "Development & Tools": ["Python", "Bash", "R", "SQL", "Linux", "SLURM", "Git/GitHub", "Docker/Singularity", "FastAPI", "SQLite", "Celery", "Redis"],
-  "Wet Laboratory": ["Western blot", "SDS-PAGE", "ELISA", "PCR", "Protein purification", "Spectrophotometry"]
+  "Bioinformatics & Workflows": [
+    { label: "Snakemake", url: "https://snakemake.readthedocs.io/" },
+    { label: "Nextflow", url: "https://www.nextflow.io/" },
+    { label: "Genomics", url: "" },
+    { label: "Transcriptomics", url: "" },
+    { label: "Metagenomics", url: "" },
+    { label: "Proteomics", url: "" },
+    { label: "Variant Analysis", url: "" },
+    { label: "Structural Bioinformatics", url: "" }
+  ],
+  "Machine Learning & Data Science": [
+    { label: "PyTorch", url: "https://pytorch.org/" },
+    { label: "scikit-learn", url: "https://scikit-learn.org/stable/" },
+    { label: "pandas", url: "https://pandas.pydata.org/docs/" },
+    { label: "NumPy", url: "https://numpy.org/" },
+    { label: "RAG", url: "https://www.ibm.com/think/topics/retrieval-augmented-generation" },
+    { label: "LLMs", url: "" },
+    { label: "MLflow", url: "https://mlflow.org/" }
+  ],
+  "Development & Tools": [
+    { label: "Python", url: "https://www.python.org/" },
+    { label: "Bash", url: "https://www.gnu.org/software/bash/" },
+    { label: "R", url: "https://www.r-project.org/" },
+    { label: "SQL", url: "https://www.postgresql.org/docs/current/sql.html" },
+    { label: "Linux", url: "https://www.linux.org/" },
+    { label: "SLURM", url: "https://slurm.schedmd.com/" },
+    { label: "Git/GitHub", url: "https://docs.github.com/en/get-started/using-git/about-git" },
+    { label: "Docker/Singularity", url: "https://www.docker.com/" },
+    { label: "FastAPI", url: "https://fastapi.tiangolo.com/" },
+    { label: "SQLite", url: "https://sqlite.org/" },
+    { label: "Celery", url: "https://docs.celeryq.dev/" },
+    { label: "Redis", url: "https://redis.io/" }
+  ],
+  "Wet Laboratory": [
+    { label: "Western blot", url: "" },
+    { label: "SDS-PAGE", url: "" },
+    { label: "ELISA", url: "" },
+    { label: "PCR", url: "" },
+    { label: "Protein purification", url: "" },
+    { label: "Spectrophotometry", url: "" }
+  ]
 };
 
 export const publications = [
@@ -83,7 +120,7 @@ export const publications = [
   {
     title: "Computer Software Work: in-silico prediction of secreted effector and elicitor candidates",
     venue: "Copyright (SW-19912/2024, Govt. of India)",
-    link: "https://www.linkedin.com/in/chandrashekar-c-r/overlay/Certifications/748200192/treasury/?profileId=ACoAAD5q9vEBWir9eNRpi6J13qfFp_syJ4epY6c"
+    link: copyRightSoftware
   }
 ];
 
