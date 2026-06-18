@@ -188,6 +188,13 @@ function Home() {
             Explore <ArrowRight size={16} />
           </span>
         </Link>
+        <Link to="/more" className="group p-6 rounded-2xl border border-border bg-card hover:border-primary transition-colors hover-lift">
+          <h3 className="text-lg font-semibold text-foreground mb-2">More</h3>
+          <p className="text-sm text-muted-foreground mb-4">Intrests and other soft skills.</p>
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+            Explore <ArrowRight size={16} />
+          </span>
+        </Link>
       </div>
     </main>
   );
