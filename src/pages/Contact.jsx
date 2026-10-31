@@ -79,7 +79,7 @@ function Contact() {
                     value={form.name}
                     onChange={update('name')}
                     autoComplete="name"
-                    placeholder="Ada Lovelace"
+                    placeholder="Your Name"
                     className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-base outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </label>

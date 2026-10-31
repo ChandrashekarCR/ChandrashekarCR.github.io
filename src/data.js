@@ -10,7 +10,7 @@ import vtuFootballChampions from './assets/vtu_football_champions.jpg';
 
 export const personalInfo = {
   name: 'Chandrashekar CR',
-  role: 'Bioinformatics Solution Architect',
+  role: 'Bioinformatics Engineer',
   tagline: 'Bioinformatics, built as end-to-end systems.',
   taglineAccent: 'end-to-end systems.',
   about:
@@ -24,9 +24,8 @@ export const personalInfo = {
 };
 
 export const contactTopics = [
-  'Job opportunity',
   'Research collaboration',
-  'Pipeline / consulting',
+  'Pipeline set-up',
   'Question about a project',
   'Just saying hej'
 ];
