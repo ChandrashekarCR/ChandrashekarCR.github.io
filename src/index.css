@@ -29,11 +29,45 @@
   --color-base-g: #df8a0f;
   --color-base-t: #d6455d;
 
+  /* Always-dark panel used by the contact call-to-action band */
+  --color-ink: #13212b;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   --radius: 0.9rem;
+}
+
+/* Dark "lab at night" theme: same tokens, set on <html data-theme="dark"> by ThemeToggle */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #0d1417;
+  --color-foreground: #e6eef0;
+
+  --color-card: #142026;
+
+  --color-primary: #3cc4ad;
+  --color-primary-foreground: #06201b;
+
+  --color-secondary: #17302c;
+  --color-secondary-foreground: #9fb3ff;
+
+  --color-muted: #1a272d;
+  --color-muted-foreground: #9aabb3;
+
+  --color-border: #263840;
+
+  --color-highlight: #f0a646;
+  --color-surface: #18252b;
+
+  --color-base-a: #34c88f;
+  --color-base-c: #6b9cf5;
+  --color-base-g: #f2a93b;
+  --color-base-t: #f07185;
+
+  --color-ink: #081014;
 }
 
 @layer base {
@@ -43,6 +77,7 @@
   }
 
   body {
+    transition: background-color 0.3s ease, color 0.3s ease;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -55,7 +90,7 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-image: radial-gradient(rgba(19, 33, 43, 0.07) 1px, transparent 1.2px);
+    background-image: radial-gradient(color-mix(in srgb, var(--color-foreground) 8%, transparent) 1px, transparent 1.2px);
     background-size: 22px 22px;
     mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 70%, transparent 100%);
   }
@@ -115,7 +150,11 @@
     background: var(--color-card);
     border: 1px solid var(--color-border);
     border-radius: 1.25rem;
-    box-shadow: 0 1px 2px rgba(19, 33, 43, 0.04), 0 8px 24px -12px rgba(19, 33, 43, 0.12);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.12);
+  }
+
+  :root[data-theme="dark"] .card {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   }
 
   .hover-lift {
@@ -125,7 +164,7 @@
   .hover-lift:hover {
     transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
-    box-shadow: 0 2px 4px rgba(19, 33, 43, 0.05), 0 18px 40px -16px rgba(11, 122, 108, 0.35);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 18px 40px -16px color-mix(in srgb, var(--color-primary) 40%, transparent);
   }
 
   .btn {
@@ -147,11 +186,11 @@
   .btn-primary {
     background: var(--color-primary);
     color: var(--color-primary-foreground);
-    box-shadow: 0 6px 18px -8px rgba(11, 122, 108, 0.7);
+    box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--color-primary) 70%, transparent);
   }
 
   .btn-primary:hover {
-    background: #096659;
+    background: color-mix(in srgb, var(--color-primary) 85%, var(--color-foreground));
   }
 
   .btn-outline {

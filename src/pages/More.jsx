@@ -26,7 +26,7 @@ function MediaGallery({ media = [] }) {
             loading="lazy"
           />
           {item.caption && (
-            <figcaption className="absolute inset-x-2 bottom-2 rounded-lg bg-white/90 px-3 py-1.5 font-mono text-[11px] text-foreground shadow-sm backdrop-blur">
+            <figcaption className="absolute inset-x-2 bottom-2 rounded-lg bg-card/90 px-3 py-1.5 font-mono text-[11px] text-foreground shadow-sm backdrop-blur">
               {item.caption}
             </figcaption>
           )}

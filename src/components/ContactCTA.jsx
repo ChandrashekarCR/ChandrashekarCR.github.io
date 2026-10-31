@@ -10,7 +10,7 @@ import Reveal from './Reveal';
 function ContactCTA() {
   return (
     <section className="max-w-6xl mx-auto px-5 sm:px-6 py-10 md:py-16">
-      <Reveal className="relative overflow-hidden rounded-3xl bg-foreground text-background px-6 py-10 sm:px-10 md:py-14">
+      <Reveal className="relative overflow-hidden rounded-3xl bg-ink text-white ring-1 ring-white/5 px-6 py-10 sm:px-10 md:py-14">
         <DnaHelix className="pointer-events-none absolute inset-x-0 bottom-0 opacity-25" />
         <div className="relative grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
           <div>
