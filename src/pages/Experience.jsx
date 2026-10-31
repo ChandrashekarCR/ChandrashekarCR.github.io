@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ExternalLink, Code2, FileText, Sparkles } from 'lucide-react';
 import Section from '../components/Section';
+import bmcGannaPetruk from '../assets/bmc_ganna_petruk.jpg';
 
 function Experience() {
   const projects = useMemo(
@@ -12,51 +13,85 @@ function Experience() {
         tagline: 'Predicting where a sample came from — from its microbes alone.',
         role: 'MSc Thesis · BINP51',
         org: 'Dr. Eran Elhaik Lab, Lund University',
-        period: 'Dec 2025 – Present',
-        status: 'active',
+        period: 'Dec 2025 – Sep 2026',
+        status: 'completed',
         flagship: true,
         github: 'https://github.com/ChandrashekarCR/microbiome-forensic-tracker',
         paper: null,
         problem:
           "Every environment possesses a distinct microbial community that functions as a biological fingerprint. Whether derived from a surface swab, a soil core, or a complex metagenomic sample, a microbiome is fundamentally shaped by its geographic provenance. The core challenge lies in determining whether an unknown sample's microbial profile can accurately predict its precise geographic origin, and whether that prediction can be translated into legally defensible, interpretable forensic evidence.",
         solution:
-          'I am building this as an end-to-end microbial forensics platform that converts raw sequencing data into latitude and longitude coordinates. The system integrates a metagenomic inference engine managed via a Snakemake pipeline, a GPU-accelerated machine learning layer with MLflow tracking, and a FastAPI + SQLite backend featuring map-driven workflows. To bridge the gap between complex data and actionable intelligence, an Ollama-powered RAG (Retrieval-Augmented Generation) layer automatically synthesizes natural-language forensic reports.',
+          'I built and delivered an end-to-end microbial forensics framework: raw FASTQ files go in, latitude and longitude come out. A Snakemake-managed metagenomic inference engine feeds a GPU-accelerated machine learning layer (tracked with MLflow), trained on the Malmö dataset, behind a FastAPI + SQLite backend with map-driven workflows. The finished framework is deployed both on SLURM/HPC and in the cloud.',
         engineering:
-          'This project is designed as software architecture, not a one-off analysis: switchable pipeline stages, per-rule HPC resources, Apptainer containers, tests with pytest, and CI gates (Ruff, Black, snakefmt, GitHub Actions) for reproducibility and maintainability.',
+          'This project is designed as software architecture, not a one-off analysis: switchable pipeline stages, per-rule HPC resources, Apptainer containers, tests with pytest, and CI gates (Ruff, Black, snakefmt, GitHub Actions) for reproducibility and maintainability — the same code runs on a SLURM cluster and in cloud containers.',
+        next:
+          'AI integration — exploring an LLM / RAG layer that turns predictions into natural-language, interpretable forensic reports.',
         stack: [
-        { label: 'Snakemake', url: 'https://snakemake.readthedocs.io' },
-        { label: 'DNABERT-S', url: 'https://github.com/MAGICS-LAB/DNABERT_S' },
-        { label: 'PyTorch', url: 'https://pytorch.org/' },
-        { label: 'FastAPI', url: 'https://fastapi.tiangolo.com/' },
-        { label: 'SQLite', url: 'https://sqlite.org/' },
-        { label: 'Ollama / RAG', url: 'https://ollama.com/' },
-        { label: 'Apptainer', url: 'https://apptainer.org/' },
-        { label: 'SLURM / HPC', url: 'https://slurm.schedmd.com/' }
-          ]
+          { label: 'Snakemake', url: 'https://snakemake.readthedocs.io' },
+          { label: 'DNABERT-S', url: 'https://github.com/MAGICS-LAB/DNABERT_S' },
+          { label: 'PyTorch', url: 'https://pytorch.org/' },
+          { label: 'MLflow', url: 'https://mlflow.org/' },
+          { label: 'FastAPI', url: 'https://fastapi.tiangolo.com/' },
+          { label: 'SQLite', url: 'https://sqlite.org/' },
+          { label: 'Apptainer', url: 'https://apptainer.org/' },
+          { label: 'SLURM / HPC', url: 'https://slurm.schedmd.com/' }
+        ]
       },
       {
         id: 'tel-megiddo-adna',
         rank: '02',
         title: 'Tel-Megiddo Ancient DNA',
-        tagline: 'Reconstructing the past from degraded reads — chicken or its relatives?',
+        tagline: 'Is the ancient chicken signal real? Authentication before interpretation.',
         role: 'Pipeline Engineering',
         org: 'Tel-Megiddo aDNA Project',
         period: 'Ongoing',
-        status: 'active',
+        status: 'learning',
         flagship: false,
         github: 'https://github.com/ChandrashekarCR/tel-megiddo-aDNA',
         paper: null,
         problem:
-          'At the Tel-Megiddo archaeological site, ancient DNA reads mapped to chicken-like taxa, but degradation and close relatives complicate interpretation. The key question is whether reads are truly Gallus gallus or close relatives (jungle fowl, turkey, quail, pheasant), and if chicken is present, which genome regions are represented. The same framework is extended to fish remains and palm-tree-associated bacterial signals.',
+          'At the Tel-Megiddo archaeological site, ancient DNA reads mapped to chicken-like taxa. Before any biological story can be told, the signal itself has to be trusted: are these reads genuinely ancient Gallus gallus, or modern contamination and misassigned close relatives (jungle fowl, turkey, quail, pheasant)?',
         solution:
-          'I built a modular Nextflow workflow with explicit reference-database curation (Gallus gallus + Coturnix + turkey + Phasianus), automated NCBI genome retrieval and FASTA tagging, Kraken2 classification with aDNA-tuned parameters, Bracken abundance profiling, read-length and KMC complexity QC, and a BLAST localization stage under active development.',
+          'I am currently learning and building the validation side of this question: proper aDNA authentication (post-mortem damage patterns, fragment-length distributions) and a contamination study, on top of a modular Nextflow workflow with curated reference databases, Kraken2/Bracken classification with aDNA-tuned parameters, and read-complexity QC.',
         engineering:
-          'This is pipeline engineering with provenance first: every stage is testable and traceable. It runs on SLURM/HPC today and is being packaged for cloud portability on Azure using Singularity/Apptainer, with CI checks, reproducible configs, and environment pinning for identical execution across infrastructures.',
-          stack: [
-            { label: 'Nextflow', url: 'https://www.nextflow.io/' },
-            { label: 'Apptainer', url: 'https://apptainer.org/' },
-            { label: 'SLURM', url: 'https://slurm.schedmd.com/' },
-          ]
+          'Provenance first: every stage is testable and traceable, so authenticity claims can be audited. It runs on SLURM/HPC with Apptainer containers, reproducible configs, and pinned environments.',
+        stack: [
+          { label: 'Nextflow', url: 'https://www.nextflow.io/' },
+          { label: 'Apptainer', url: 'https://apptainer.org/' },
+          { label: 'SLURM', url: 'https://slurm.schedmd.com/' }
+        ]
+      },
+      {
+        id: 'rnaseq-shvf18',
+        rank: '03',
+        title: 'Transcriptomics of an Anti-inflammatory Peptide',
+        tagline: 'How a stapled thrombin peptide rewires the lung transcriptome over time.',
+        role: 'Summer Research Project',
+        org: 'Dr. Ganna Petruk Lab, Dermatology & Venereology, Lund University',
+        period: 'Summer 2025',
+        status: 'report',
+        flagship: false,
+        github: null,
+        paper: null,
+        media: { src: bmcGannaPetruk, alt: 'With Dr. Ganna Petruk in the lab at BMC, Lund' },
+        problem:
+          'Sepsis kills around 11 million people a year, largely through an overactive immune response. Thrombin-derived C-terminal peptides (TCPs) can dampen that response but degrade quickly. sHVF18 is a hydrocarbon-stapled, protease-resistant TCP analog — the question was what it actually does to gene expression in mouse lung, across six doses (0–500 µg) and two time points (3 h, 20 h).',
+        solution:
+          'I built the RNA-Seq analysis end to end in R: metadata curation, low-count filtering (57,010 → 29,714 genes), and four competing DESeq2 designs (drug-only, time-only, additive, interaction) compared via PCA variance and biological interpretability. Per-gene linear vs. logarithmic dose-response models and GO / KEGG enrichment (clusterProfiler) revealed a biphasic response: broad, saturable pro-inflammatory activation at 3 h, narrowing to focused regulatory, antiviral, and metabolic programs at 20 h.',
+        engineering:
+          'Model selection was the core design decision: the interaction model explained the most variance, but only the drug-only model yielded a shared gene signature for functional analysis. Making that trade-off explicit — and explaining why the shared signal vanishes over time — turned a statistical choice into a biological finding.',
+        metrics: [
+          { label: 'Core genes across all doses (3 h)', value: '17', note: 'all logarithmic dose-response' },
+          { label: 'DEGs shared by 100 & 500 µg at 3 h', value: '312', note: 'narrowing to 7 at 20 h' },
+          { label: 'Linear dose-response at 20 h', value: 'R² > 0.91', note: 'Acod1, Oas1a, Oas2' }
+        ],
+        stack: [
+          { label: 'R', url: 'https://www.r-project.org/' },
+          { label: 'DESeq2', url: 'https://bioconductor.org/packages/DESeq2/' },
+          { label: 'clusterProfiler', url: 'https://bioconductor.org/packages/clusterProfiler/' },
+          { label: 'GO / KEGG enrichment', url: 'https://www.genome.jp/kegg/' },
+          { label: 'Transcriptomics', url: null }
+        ]
       },
       {
         id: 'viral',
@@ -86,7 +121,7 @@ function Experience() {
       },
       {
         id: 'mgps',
-        rank: '03',
+        rank: '04',
         title: 'mGPS Optimization',
         tagline: 'Metagenomic geolocation, 10× sharper than prior baselines.',
         role: 'Research Project · BINP37',
@@ -115,7 +150,7 @@ function Experience() {
       },
       {
         id: 'hotdog-proteins',
-        rank: '04',
+        rank: '05',
         title: 'Hot Dog Proteins',
         tagline: 'Predicting function from fold, not sequence.',
         role: 'Bachelor Thesis',
@@ -148,7 +183,7 @@ function Experience() {
       },
       {
         id: 'tpmt',
-        rank: '05',
+        rank: '06',
         title: 'TPMT Pharmacogenomics',
         tagline: 'Where computation met a clinically relevant biological question.',
         role: 'Undergraduate Research',
@@ -195,7 +230,7 @@ function Experience() {
             A biological story, told through software.
           </h3>
           <p className="mt-3 max-w-3xl text-muted-foreground">
-            Four projects, one philosophy: convert a biological question into a reproducible,
+            {researchProjects.length} projects, one philosophy: convert a biological question into a reproducible,
             interpretable, and deployable computational system.
           </p>
         </div>
@@ -242,6 +277,14 @@ function Experience() {
                 <span className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-300">
                   ● Active
                 </span>
+              ) : activeProject.status === 'completed' ? (
+                <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono text-primary">
+                  ✓ Completed
+                </span>
+              ) : activeProject.status === 'learning' ? (
+                <span className="inline-flex items-center rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs font-mono text-amber-300">
+                  ◐ In progress · learning
+                </span>
               ) : activeProject.status === 'published' ? (
                 <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
                   Published
@@ -282,7 +325,23 @@ function Experience() {
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{activeProject.engineering}</p>
               </div>
+
+              {activeProject.next && (
+                <div className="rounded-xl border border-dashed border-primary/50 bg-primary/5 p-4">
+                  <p className="text-xs font-mono uppercase tracking-wide text-primary">What&apos;s next</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{activeProject.next}</p>
+                </div>
+              )}
             </div>
+
+            {activeProject.media && (
+              <img
+                src={activeProject.media.src}
+                alt={activeProject.media.alt}
+                loading="lazy"
+                className="w-full max-h-96 rounded-xl border border-border object-cover"
+              />
+            )}
 
             <div className="flex flex-wrap gap-2">
               {activeProject.stack.map((techItem) => {
