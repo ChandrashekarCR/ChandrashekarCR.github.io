@@ -14,7 +14,7 @@ function ContactCTA() {
         <DnaHelix className="pointer-events-none absolute inset-x-0 bottom-0 opacity-25" />
         <div className="relative grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
           <div>
-            <p className="font-mono text-xs text-[#9fe3d6]">&gt;status | {personalInfo.availability}</p>
+            <p className="font-mono text-xs text-white/60">&gt;status | {personalInfo.availability}</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white">
               Have a pipeline, a dataset, or a role in mind?
             </h2>
@@ -23,7 +23,7 @@ function ContactCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-stretch">
-            <a href={`mailto:${personalInfo.email}`} className="btn btn-primary">
+            <a href={`mailto:${personalInfo.email}`} className="btn bg-white text-ink hover:bg-white/90">
               <Mail size={18} /> Email me
             </a>
             <Link to="/contact" className="btn bg-white/10 text-white border border-white/20 hover:bg-white/20">
