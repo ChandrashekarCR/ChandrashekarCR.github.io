@@ -1,48 +1,44 @@
 import React from 'react';
-import { BookOpen, FileText } from 'lucide-react';
+import { GraduationCap, FileText } from 'lucide-react';
 import { education } from '../data';
 import Section from '../components/Section';
+import Reveal from '../components/Reveal';
 
 function Education() {
   return (
-    <Section title="Education" id="education">
-      <div className="grid md:grid-cols-2 gap-6">
-        {education.map((edu) => (
-          <article
-            key={edu.institution}
-            className="p-6 bg-card rounded-2xl border border-border hover:border-secondary-foreground/50 transition-colors shadow-sm"
-          >
-            <BookOpen className="text-primary mb-4" size={28} />
-            <h3 className="text-xl font-bold mb-2 text-foreground">{edu.degree}</h3>
-            <p className="text-secondary-foreground font-medium mb-1">{edu.institution}</p>
-            <p className="text-muted-foreground text-sm mb-4">
-              {edu.location} | {edu.duration}
-            </p>
-
-            {edu.details && (
-              <span className="inline-block px-3 py-1 bg-secondary text-secondary-foreground text-xs font-mono rounded-full">
-                {edu.details}
-              </span>
-            )}
-
-            {edu.documents?.length > 0 && (
-              <div className="mt-5 flex flex-wrap gap-2">
-                {edu.documents.map((doc) => (
-                  <a
-                    key={doc.label}
-                    href={doc.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-mono text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-                  >
-                    <FileText size={13} /> {doc.label}
-                  </a>
-                ))}
+    <Section title="Education" id="education" label="education | degrees">
+      <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6 sm:pl-10">
+        {education.map((edu, index) => (
+          <Reveal as="li" key={edu.institution} delay={index * 80} className="relative">
+            <span className="absolute -left-[41px] sm:-left-[57px] top-6 grid h-8 w-8 place-items-center rounded-full border-2 border-background bg-primary text-primary-foreground shadow">
+              <GraduationCap size={16} />
+            </span>
+            <article className="card hover-lift p-6 md:p-8">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <p className="font-mono text-xs text-muted-foreground">{edu.duration}</p>
+                  <h3 className="mt-2 text-xl md:text-2xl font-bold text-foreground">{edu.degree}</h3>
+                  <p className="mt-1 font-medium text-primary">{edu.institution}</p>
+                  <p className="text-sm text-muted-foreground">{edu.location}</p>
+                </div>
+                {edu.details && (
+                  <span className="rounded-full bg-secondary px-3 py-1 font-mono text-xs text-primary">{edu.details}</span>
+                )}
               </div>
-            )}
-          </article>
+
+              {edu.documents?.length > 0 && (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {edu.documents.map((doc) => (
+                    <a key={doc.label} href={doc.href} target="_blank" rel="noopener noreferrer" className="chip">
+                      <FileText size={13} /> {doc.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </article>
+          </Reveal>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 }
