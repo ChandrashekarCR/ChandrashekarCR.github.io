@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { GitBranch, Link2, Mail, Menu, X } from 'lucide-react';
 import { navLinks, personalInfo } from '../data';
 import ContactCTA from './ContactCTA';
+import ThemeToggle from './ThemeToggle';
 
 const navLinkClass = ({ isActive }) =>
   `relative px-1 py-1 transition-colors ${
@@ -74,6 +75,9 @@ function Layout({ children }) {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2">
+            <div className="hidden sm:block">
+              <ThemeToggle />
+            </div>
             <Link to="/contact" className="btn btn-primary py-2! px-3! text-sm sm:px-4!">
               <Mail size={16} /> <span className="hidden sm:inline">Contact me</span>
               <span className="sm:hidden">Contact</span>
@@ -116,6 +120,9 @@ function Layout({ children }) {
                 </li>
               ))}
             </ul>
+            <div className="max-w-6xl mx-auto px-5 sm:px-6 pb-4 sm:hidden">
+              <ThemeToggle showLabel className="w-full justify-center" />
+            </div>
             <div className="max-w-6xl mx-auto px-5 sm:px-6 pb-6 flex flex-wrap gap-2">
               <a href={`mailto:${personalInfo.email}`} className="chip">
                 <Mail size={13} /> Email
@@ -136,7 +143,7 @@ function Layout({ children }) {
           type="button"
           aria-label="Close menu"
           tabIndex={-1}
-          className="lg:hidden fixed inset-0 z-40 bg-foreground/20 backdrop-blur-[2px]"
+          className="lg:hidden fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px]"
           onClick={closeMenu}
         />
       )}
