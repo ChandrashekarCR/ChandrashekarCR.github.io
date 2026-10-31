@@ -5,7 +5,7 @@ import lundLor from './assets/lu_lor.pdf';
 import copyRightSoftware from './assets/copyrights_software.pdf';
 import fullPortrait from './assets/full_portait.jpg';
 import taLundUniversity from './assets/ta_lund_university.webp';
-import violinPics from './assets/violin_pics.jpg';
+import violinPic from './assets/violin_pic.jpg';
 import centralVtuSingleShot from './assets/central_vtu_single_shot.jpeg';
 import vtuFootballChampions from './assets/vtu_football_champions.jpg';
 
@@ -107,9 +107,9 @@ export const moreSections = [
           'Student of renowned violinist Shri HK Venkatram. Performed in concerts for Raagamalika in Sweden, Art to Heart Institute in Norway, Sadhakam and Nrityapada in Denmark.',
         media: [
           {
-            src: violinPics,
-            alt: 'Carnatic violin performance photo',
-            caption: 'Violin performance',
+            src: violinPic,
+            alt: 'Playing Carnatic violin on stage',
+            caption: 'On stage — Carnatic violin',
             className: 'aspect-[2/3]'
           }
         ]
@@ -122,9 +122,15 @@ export const moreSections = [
           {
             src: centralVtuSingleShot,
             alt: 'Football team single shot at VTU Central Zone',
-            caption: 'VTU Central Zone',
+            caption: 'VTU Central Zone winners',
             className: 'aspect-[3/4]'
           },
+          {
+            src: vtuFootballChampions,
+            alt: 'Ramaiah Institute of Technology football team with the Bangalore Central Division trophy',
+            caption: 'Bangalore Central Division — champions',
+            className: 'aspect-[4/3]'
+          }
         ]
       }
     ]

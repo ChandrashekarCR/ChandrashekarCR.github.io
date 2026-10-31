@@ -12,7 +12,7 @@ function MediaGallery({ media = [] }) {
   if (!media.length) return null;
 
   return (
-    <div className="space-y-3">
+    <div className={media.length > 1 ? 'grid gap-3 sm:grid-cols-2 lg:grid-cols-1' : 'space-y-3'}>
       {media.map((item) => (
         <figure
           key={item.src}
