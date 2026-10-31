@@ -82,15 +82,6 @@ function ProjectDetail({ project }) {
         )}
       </div>
 
-      {project.media && (
-        <img
-          src={project.media.src}
-          alt={project.media.alt}
-          loading="lazy"
-          className="w-full max-h-96 rounded-xl border border-border object-cover"
-        />
-      )}
-
       <TechChips stack={project.stack} />
 
       {(project.github || project.paper) && (

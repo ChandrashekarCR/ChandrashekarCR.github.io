@@ -1,5 +1,3 @@
-import bmcGannaPetruk from './assets/bmc_ganna_petruk.jpg';
-
 // Research projects and professional experience, in display order.
 export const projects = [
   {
@@ -59,7 +57,7 @@ export const projects = [
   },
   {
     id: 'rnaseq-shvf18',
-    rank: '03',
+    kind: 'professional',
     title: 'Transcriptomics of an Anti-inflammatory Peptide',
     tagline: 'How a stapled thrombin peptide rewires the lung transcriptome over time.',
     role: 'Summer Research Project',
@@ -69,7 +67,6 @@ export const projects = [
     flagship: false,
     github: null,
     paper: null,
-    media: { src: bmcGannaPetruk, alt: 'With Dr. Ganna Petruk in the lab at BMC, Lund' },
     problem:
       'Sepsis kills around 11 million people a year, largely through an overactive immune response. Thrombin-derived C-terminal peptides (TCPs) can dampen that response but degrade quickly. sHVF18 is a hydrocarbon-stapled, protease-resistant TCP analog — the question was what it actually does to gene expression in mouse lung, across six doses (0–500 µg) and two time points (3 h, 20 h).',
     solution:
@@ -118,7 +115,7 @@ export const projects = [
   },
   {
     id: 'mgps',
-    rank: '04',
+    rank: '03',
     title: 'mGPS Optimization',
     tagline: 'Metagenomic geolocation, 10× sharper than prior baselines.',
     role: 'Research Project · BINP37',
@@ -148,7 +145,7 @@ export const projects = [
   },
   {
     id: 'hotdog-proteins',
-    rank: '05',
+    rank: '04',
     title: 'Hot Dog Proteins',
     tagline: 'Predicting function from fold, not sequence.',
     role: 'Bachelor Thesis',
@@ -181,7 +178,7 @@ export const projects = [
   },
   {
     id: 'tpmt',
-    rank: '06',
+    rank: '05',
     title: 'TPMT Pharmacogenomics',
     tagline: 'Where computation met a clinically relevant biological question.',
     role: 'Undergraduate Research',
