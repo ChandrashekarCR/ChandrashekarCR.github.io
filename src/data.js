@@ -3,9 +3,8 @@ import lundTranscript from './assets/lund_transcript.pdf';
 import lundDegree from './assets/lund_msc_degree.pdf';
 import lundLor from './assets/lu_lor.pdf';
 import copyRightSoftware from './assets/copyrights_software.pdf';
-import fullPortrait from './assets/full_portait.jpg';
 import taLundUniversity from './assets/ta_lund_university.webp';
-import violinPics from './assets/violin_pics.jpg';
+import violinPic from './assets/violin_pic.jpg';
 import centralVtuSingleShot from './assets/central_vtu_single_shot.jpeg';
 import vtuFootballChampions from './assets/vtu_football_champions.jpg';
 
@@ -13,14 +12,33 @@ export const personalInfo = {
   name: 'Chandrashekar CR',
   role: 'Bioinformatics Solution Architect',
   tagline: 'Bioinformatics, built as end-to-end systems.',
+  taglineAccent: 'end-to-end systems.',
   about:
     'Bioinformatician with experience in applying machine learning to biological problems, from predicting viral mutations in pandemic response to building ensemble models for metagenomic analysis. Comfortable working across the data science pipeline—feature engineering, model selection, hyperparameter tuning, and error analysis.',
   email: 'shekarlp18@gmail.com',
   phone: '+91-8431982577 / +46-768953677',
   linkedin: 'https://www.linkedin.com/in/chandrashekar-c-r/',
   github: 'https://github.com/ChandrashekarCR',
-  location: 'Lund, Sweden / Bengaluru, India'
+  location: 'Lund, Sweden / Bengaluru, India',
+  availability: 'open to bioinformatics engineering roles & collaborations'
 };
+
+export const contactTopics = [
+  'Job opportunity',
+  'Research collaboration',
+  'Pipeline / consulting',
+  'Question about a project',
+  'Just saying hej'
+];
+
+export const navLinks = [
+  { to: '/about', label: 'About' },
+  { to: '/experience', label: 'Experience' },
+  { to: '/education', label: 'Education' },
+  { to: '/skills', label: 'Skills' },
+  { to: '/publications', label: 'Publications' },
+  { to: '/more', label: 'More' }
+];
 
 export const aboutSection = {
   title: 'Bioinformatics as systems design',
@@ -107,9 +125,9 @@ export const moreSections = [
           'Student of renowned violinist Shri HK Venkatram. Performed in concerts for Raagamalika in Sweden, Art to Heart Institute in Norway, Sadhakam and Nrityapada in Denmark.',
         media: [
           {
-            src: violinPics,
-            alt: 'Carnatic violin performance photo',
-            caption: 'Violin performance',
+            src: violinPic,
+            alt: 'Playing Carnatic violin on stage',
+            caption: 'On stage — Carnatic violin',
             className: 'aspect-[2/3]'
           }
         ]
@@ -122,9 +140,15 @@ export const moreSections = [
           {
             src: centralVtuSingleShot,
             alt: 'Football team single shot at VTU Central Zone',
-            caption: 'VTU Central Zone',
+            caption: 'VTU Central Zone winners',
             className: 'aspect-[3/4]'
           },
+          {
+            src: vtuFootballChampions,
+            alt: 'Ramaiah Institute of Technology football team with the Bangalore Central Division trophy',
+            caption: 'Bangalore Central Division — champions',
+            className: 'aspect-[4/3]'
+          }
         ]
       }
     ]
