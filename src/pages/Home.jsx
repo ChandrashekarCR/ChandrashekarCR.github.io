@@ -126,9 +126,9 @@ function Home() {
           </p>
         </Reveal>
 
-        <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {pipelineSteps.map((step, index) => (
-            <Reveal as="li" key={step.id} delay={index * 70} className="card hover-lift group relative p-5">
+            <Reveal as="li" key={step.id} delay={index * 70} className="card hover-lift group relative p-4 sm:p-5 last:col-span-2 sm:last:col-span-1">
               <span className={`block h-1.5 w-10 rounded-full ${step.color} transition-all duration-300 group-hover:w-full`} />
               <p className="mt-4 font-mono text-xs text-muted-foreground">step_{index + 1}</p>
               <p className="mt-1 font-display text-lg font-semibold">{step.label}</p>

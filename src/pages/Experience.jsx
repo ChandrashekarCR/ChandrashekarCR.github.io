@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ExternalLink, Code2, FileText, Microscope, Wrench, Cpu, Compass } from 'lucide-react';
 import Section from '../components/Section';
@@ -115,8 +115,25 @@ function ProjectDetail({ project }) {
 
 function Experience() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeProject =
-    researchProjects.find((project) => project.id === searchParams.get('project')) ?? researchProjects[0];
+  const requestedId = searchParams.get('project');
+  const activeProject = researchProjects.find((project) => project.id === requestedId) ?? researchProjects[0];
+
+  // Deep links to professional experience scroll to that card instead of selecting a research project.
+  useEffect(() => {
+    if (!professionalExperience.some((project) => project.id === requestedId)) return undefined;
+    const frame = requestAnimationFrame(() =>
+      document.getElementById(requestedId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [requestedId]);
+
+  // Keep the selected card visible in the horizontal mobile scroller.
+  const scrollIntoViewOnMobile = (node) => {
+    const strip = node?.parentElement;
+    if (strip && strip.scrollWidth > strip.clientWidth) {
+      strip.scrollTo({ left: node.offsetLeft - strip.offsetLeft - 20, behavior: 'smooth' });
+    }
+  };
 
   const selectProject = (id) => setSearchParams({ project: id }, { replace: true, preventScrollReset: true });
 
@@ -131,16 +148,20 @@ function Experience() {
         <div className="space-y-5">
           <h3 className="text-xl font-bold text-foreground">Research projects</h3>
           <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-            <nav aria-label="Research projects" className="space-y-2 lg:sticky lg:top-24 self-start">
+            <nav
+              aria-label="Research projects"
+              className="-mx-5 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:-mx-6 sm:px-6 lg:sticky lg:top-24 lg:mx-0 lg:block lg:space-y-2 lg:self-start lg:overflow-visible lg:px-0 lg:pb-0 [scrollbar-width:thin]"
+            >
               {researchProjects.map((project) => {
                 const isActive = project.id === activeProject.id;
                 return (
                   <button
+                    ref={isActive ? scrollIntoViewOnMobile : undefined}
                     key={project.id}
                     type="button"
                     onClick={() => selectProject(project.id)}
                     aria-current={isActive ? 'true' : undefined}
-                    className={`w-full rounded-xl border p-4 text-left transition-all ${
+                    className={`w-64 shrink-0 snap-start rounded-xl border p-4 text-left transition-all lg:w-full ${
                       isActive
                         ? 'border-primary bg-card shadow-md ring-1 ring-primary/30'
                         : 'border-border bg-card/60 hover:border-primary/50 hover:bg-card'
@@ -170,7 +191,7 @@ function Experience() {
           <div className="space-y-5">
             <h3 className="text-xl font-bold text-foreground">Professional experience</h3>
             {professionalExperience.map((project) => (
-              <Reveal key={project.id}>
+              <Reveal key={project.id} id={project.id} className="scroll-mt-24">
                 <ProjectDetail project={project} />
               </Reveal>
             ))}
