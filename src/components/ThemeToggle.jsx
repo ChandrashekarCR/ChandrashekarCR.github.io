@@ -2,7 +2,7 @@ import React, { useEffect, useSyncExternalStore } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 const STORAGE_KEY = 'theme';
-const THEME_COLORS = { light: '#f7f6f1', dark: '#0d1417' };
+const THEME_COLORS = { light: '#f7f6f2', dark: '#101318' };
 const darkQuery = () => window.matchMedia('(prefers-color-scheme: dark)');
 
 // The theme lives on <html data-theme>, set before first paint by the inline script in index.html.
