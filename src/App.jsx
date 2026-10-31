@@ -9,6 +9,7 @@ import Education from './pages/Education';
 import Skills from './pages/Skills';
 import Publications from './pages/Publications';
 import More from './pages/More';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/more" element={<More />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
     </BrowserRouter>
