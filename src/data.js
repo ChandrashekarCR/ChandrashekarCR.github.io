@@ -1,5 +1,7 @@
 import msritCertificate from './assets/msrit_degree.pdf';
 import lundTranscript from './assets/lund_transcript.pdf';
+import lundDegree from './assets/lund_msc_degree.pdf';
+import lundLor from './assets/lu_lor.pdf';
 import copyRightSoftware from './assets/copyrights_software.pdf';
 import fullPortrait from './assets/full_portait.jpg';
 import taLundUniversity from './assets/ta_lund_university.webp';
@@ -46,9 +48,14 @@ export const education = [
   {
     institution: 'Lund University',
     location: 'Lund, Sweden',
-    degree: 'MSc Bioinformatics',
+    degree: 'MSc Bioinformatics (120 credits)',
     duration: '2024 - 2026',
-    certificate: lundTranscript
+    details: 'Degree awarded September 2026',
+    documents: [
+      { label: 'Degree certificate', href: lundDegree },
+      { label: 'Transcript', href: lundTranscript },
+      { label: 'Letter of recommendation', href: lundLor }
+    ]
   },
   {
     institution: 'MS Ramaiah Institute of Technology',
@@ -56,7 +63,7 @@ export const education = [
     degree: 'BE Biotechnology',
     duration: '2019 - 2023',
     details: 'CGPA: 9.2/10.0',
-    certificate: msritCertificate
+    documents: [{ label: 'Degree certificate', href: msritCertificate }]
   }
 ];
 
