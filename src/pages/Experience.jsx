@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ExternalLink, Code2, FileText, Microscope, Wrench, Cpu, Compass } from 'lucide-react';
 import Section from '../components/Section';
@@ -115,8 +115,17 @@ function ProjectDetail({ project }) {
 
 function Experience() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeProject =
-    researchProjects.find((project) => project.id === searchParams.get('project')) ?? researchProjects[0];
+  const requestedId = searchParams.get('project');
+  const activeProject = researchProjects.find((project) => project.id === requestedId) ?? researchProjects[0];
+
+  // Deep links to professional experience scroll to that card instead of selecting a research project.
+  useEffect(() => {
+    if (!professionalExperience.some((project) => project.id === requestedId)) return undefined;
+    const frame = requestAnimationFrame(() =>
+      document.getElementById(requestedId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [requestedId]);
 
   // Keep the selected card visible in the horizontal mobile scroller.
   const scrollIntoViewOnMobile = (node) => {
@@ -182,7 +191,7 @@ function Experience() {
           <div className="space-y-5">
             <h3 className="text-xl font-bold text-foreground">Professional experience</h3>
             {professionalExperience.map((project) => (
-              <Reveal key={project.id}>
+              <Reveal key={project.id} id={project.id} className="scroll-mt-24">
                 <ProjectDetail project={project} />
               </Reveal>
             ))}

@@ -180,6 +180,7 @@ export const skills = {
   ],
   'Development & Tools': [
     { label: 'Python', url: 'https://www.python.org/' },
+    { label: 'Go', url: 'https://go.dev/' },
     { label: 'Bash', url: 'https://www.gnu.org/software/bash/' },
     { label: 'R', url: 'https://www.r-project.org/' },
     { label: 'SQL', url: 'https://www.postgresql.org/docs/current/sql.html' },
